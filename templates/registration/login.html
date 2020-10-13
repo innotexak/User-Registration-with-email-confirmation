@@ -1,0 +1,25 @@
+
+{% extends 'base.html'%}
+
+    
+{% block content %}
+
+<div class="container">
+    {% block title %}<h2> LOGIN</h2> {% endblock %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+         <div>{{ field.label_tag }} </div>
+       <div>   {{ field }}</div>
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+          {% endfor %}
+
+        <button class="mt-2 btn btn-primary"type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}
+

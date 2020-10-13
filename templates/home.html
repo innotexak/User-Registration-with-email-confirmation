@@ -1,0 +1,13 @@
+{% block content %}
+
+{% if user.is_authenticated %}
+ <div class="container">
+     <div>
+         <img src="{{user.image.url}}">
+     </div>
+     <h3>Welcome: <strong>{{user.email }}</strong></h3> 
+     <p>Username: <strong>{{user.username}}</strong></p>
+     <p>ID: <strong>{{user.id}}</strong></p>
+    </div>
+{% endif %}
+{% endblock %}  
