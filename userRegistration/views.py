@@ -18,8 +18,8 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
+            user = form.save(commit=True)
+            user.is_active = True
             user.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
@@ -50,7 +50,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        # return redirect('home')
+        return redirect('login')
         return HttpResponse('Thank you for your email confirmation. Now you can login your account. <a href="{{{% url "index" %}}}">Login</a> ')
     else:
         return HttpResponse('Activation link is invalid!')

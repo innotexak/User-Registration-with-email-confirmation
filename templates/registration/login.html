@@ -1,25 +1,27 @@
+{% extends "base.html" %}
 
-{% extends 'base.html'%}
+{% load crispy_forms_tags %}
 
-    
 {% block content %}
+  <main class="mt-5 pt-4">
+    <div class="container">
+      <section class="mb-4">
+        <div class="row wow fadeIn">
+          <div class='col-6 offset-3'>
+          <h1>Login</h1>
 
-<div class="container">
-    {% block title %}<h2> LOGIN</h2> {% endblock %}
-    <form method="POST">
-        {% csrf_token %}
-        {% for field in form %}
-        <p>
-         <div>{{ field.label_tag }} </div>
-       <div>   {{ field }}</div>
-          {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-          {% endfor %}
-          {% endfor %}
 
-        <button class="mt-2 btn btn-primary"type="submit">Login</button>
-    </form>
-</div>
+          <form class="login" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+           
+            <a class="btn btn-default" href="#">Password Reset</a>
+            <button class="btn btn-primary" type="submit">Login</button>
+          </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
 {% endblock %}
-

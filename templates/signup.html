@@ -1,7 +1,9 @@
 {% extends 'base.html'%}
 {% block content %}
  <div class="container">
-  <h2>Sign up</h2>
+  <div class="container">
+    <div class="container w-50 p-3">
+      <h2>Sign up</h2>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
       {% for field in form %}
@@ -15,5 +17,7 @@
       {% endfor %}
     <button type="submit" class="btn btn-secondary">Sign up</button>
   </form>
+    </div>
+  </div>
  </div>
 {% endblock %}
