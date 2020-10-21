@@ -9,6 +9,7 @@ from django.template.loader import render_to_string
 from .token import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):

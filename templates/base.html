@@ -1,4 +1,4 @@
-
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Fontawesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+   
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <title>User Registration with  email confirmation</title>
   </head>
   <body>
@@ -74,7 +75,7 @@
           <h2>Others</h2>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam voluptatum aliquam rerum harum dicta velit ratione quos, quae quam hic eum distinctio iure mollitia tempora soluta consectetur. Expedita, eaque nihil?
         </div>
-       
+       <img src ="{% static 'img/clean.jpg'% }">
        </div>
     </div>
     <!-- Optional JavaScript -->
