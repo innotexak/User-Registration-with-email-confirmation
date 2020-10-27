@@ -1,9 +1,10 @@
-{% block content %}
-
+{% extends "base.html" %} 
+{% block content %}  {% load static %}
 {% if user.is_authenticated %}
  <div class="container">
+    
      <div>
-         <img src="{{user.image.url}}">
+         <img src="">
      </div>
      <h3>Welcome: <strong>{{user.email }}</strong></h3> 
      <p>Username: <strong>{{user.username}}</strong></p>

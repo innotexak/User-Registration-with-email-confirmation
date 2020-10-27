@@ -46,8 +46,8 @@ INSTALLED_APPS = [
 
 #Authentication backend
 AUTHENTICATION_BACKENDS = [
-    'social_core.backends.linkedin.LinkedinOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
@@ -134,8 +134,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
+]
 STATIC_URL = '/static/'
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'templates')
 # MEDIA_ROOT = os.path.join
@@ -155,3 +161,33 @@ EMAIL_HOST_PASSWORD = 'your_real_email_password'
 EMAIL_PORT = 587
 
 
+#Social Login
+
+SOCIAL_AUTH_FACEBOOK_KEY = '953689698492315'          # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '523d19fb67ddb9335d815dad2cdad625'      # App Secret
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+#   'fields': 'id, name, email, picture.type(large), link'
+# }
+# SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+#     ('name', 'name'),
+#     ('email', 'email'),
+#     ('picture', 'picture'),
+#     ('link', 'profile_url'),
+# ]
+
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '77g96wrku3j7tg'         #Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'zrrcX8rNuXEovK96'  #Client Secret
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
+#     ('id', 'id'),
+#     ('formattedName', 'name'),
+#     ('emailAddress', 'email_address'),
+#     ('pictureUrl', 'picture_url'),
+#     ('publicProfileUrl', 'profile_url'),
+# ]
+
+SOCIAL_AUTH_GITHUB_KEY = 'Iv1.a6b7c2094ba38bcf'
+SOCIAL_AUTH_GITHUB_SECRET = '8aea2487e5bb067aaa508f0dbfd3e2017ebbe673'

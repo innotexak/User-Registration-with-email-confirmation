@@ -6,42 +6,43 @@
 {% block content %}
 
   <main>
-    <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
+    <div class="container container w-50 p-3">
+         
+            
               <h2>Login</h2>
               <form class="login" method="POST">
                 {% csrf_token %}
-                {{ form|crispy }}
-               
-                <a class="btn btn-default" href="#">Password Reset</a>
-                <button class="btn btn-primary" type="submit">Login</button>
+                <div>
+                  {{form.username.label_tag}}<br>
+                  {{form.username}}
+                </div>
+                <div>
+                  {{form.password.label_tag}}<br>
+                  {{form.password}}
+                </div>
+                <button class="btn btn-primary mt-4" type="submit">Login</button>
               </form>
-            </div>
-            
-            <div class="col-sm-4">
+          
               <h2>Social Login</h2>
-              <div class="col-md-8 mx-auto social-container">
-                <a class="btn btn-danger  mb-2" href="">
-                    Login with Instagram
+
+                <a class="btn btn-danger col-sm-8 mt-3" href="{% url 'social:begin' 'google' %}">
+                    <i class="fa fa-google mr-2" style="font-size:26px;"></i>
+                    Login with Google
                 </a>
-            </div>
-         
-              <div class="col-md-8 mx-auto social-container">
-                  <a class="btn btn-primary  mb-2" href="">
+       
+                  <a class="btn btn-primary col-sm-8 mt-3" href="{% url 'social:begin' 'facebook' %}">
+                    <i class="fa fa-facebook mr-2" style="font-size:26px;"></i>
                       Login with Facebook
                   </a>
-              </div>
-              <div class="col-md-8 mx-auto social-container ">
-                <a class="btn btn-success  mb-2" href="">
-                    Login with Linkedin
+             
+                <a class="btn btn-secondary col-sm-8 mt-3" href="{% url 'social:begin' 'github' %}">
+                  <i class="fa fa-github mr-2" style="font-size:26px;"></i>
+                    Login with Github
                 </a>
-            </div>
+          
            
-            </div>
-          </div>
+           
     </div>
   </main>
-q 
 
 {% endblock %}

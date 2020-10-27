@@ -25,3 +25,7 @@ img {
     color: white;
     text-decoration: none ;
   }
+
+  body{
+    background:red;
+  }
